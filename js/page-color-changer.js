@@ -6,5 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const blueSlider = document.getElementById('blue');
   const pageElement = document.documentElement;
 
-  console.log('DOM loaded, sliders:', redSlider, greenSlider, blueSlider);
+
+  // Build rgb string
+  function buildRgbString(r, g, b) {
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  // Update background
+  function updateBackgroundFromSliders() {
+    const r = parseInt(redSlider.value, 10) || 0;
+    const g = parseInt(greenSlider.value, 10) || 0;
+    const b = parseInt(blueSlider.value, 10) || 0;
+    pageElement.style.backgroundColor = buildRgbString(r, g, b);
+  }
+
+  // Hook events
+  redSlider.addEventListener('input', updateBackgroundFromSliders);
+  greenSlider.addEventListener('input', updateBackgroundFromSliders);
+  blueSlider.addEventListener('input', updateBackgroundFromSliders);
+
+  // initialize
+  updateBackgroundFromSliders();
 });
+
