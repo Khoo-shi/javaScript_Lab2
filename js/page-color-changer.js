@@ -23,6 +23,6 @@ function changeBackgroundColor() {
   // Applies the new background color to the page
   pageBody.style.backgroundColor = rgbColor;
 
-  // Log to console to test
+  // Print the color in console for testing 
   console.log('Color changed to:', rgbColor);
 }
